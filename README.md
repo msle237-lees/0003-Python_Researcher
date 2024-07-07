@@ -1,2 +1,2 @@
-# 0004-File_Manager
-A file manager written in Python to automate the organization and backup procedures on my NAS. 
+# 0003 - Python Researcher
+This script uses the google search library to search for any inputed query with an inputed number of results sorted by documents and content
