@@ -62,16 +62,9 @@ class fileSearcher:
                 content = self.scrape_content(url)
                 self.content_data[self.index] = {'type': 'CONTENT', 'title': result.title, 'url': url, 'description': result.description, 'content': content[:200]}  # Store only the first 200 characters
             self.index += 1
-
-        # Combine the dictionaries to print DOCs first and CONTENT second
-        processed_data = {**self.doc_data, **self.content_data}
-
-        # Print the processed data
-        for key, value in processed_data.items():
-            logging.info(f"{key}: {value}")
    
         print(f"Results have been logged to 'outputs/search_results.log'")
-        return processed_data
+        return self.doc_data, self.content_data
 
 if __name__ == '__main__':
     m = fileSearcher()
@@ -79,4 +72,4 @@ if __name__ == '__main__':
     query = input("Enter query to search: ")
     results = int(input("Enter number of results wanted: "))
 
-    results = m.run(query, results)
+    doc_data, content_data = m.run(query, results)
